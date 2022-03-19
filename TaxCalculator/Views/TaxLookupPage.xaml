@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="TaxCalculator.Views.TaxLookupPage"  Title="Tax Calculator">
+    
+    <NavigationPage.TitleView>
+        <StackLayout Orientation="Horizontal" HorizontalOptions="Fill">
+                     
+            <Label Text="Tax Calculator"
+                   HorizontalOptions="CenterAndExpand"
+                   VerticalOptions="CenterAndExpand"
+                   FontAttributes="Bold"
+                   FontSize="30"
+                   TextColor="Black"/>         
+            
+        </StackLayout>
+    </NavigationPage.TitleView>
+    <ContentPage.Content NavigationPage.HasNavigationBar="false">
+
+        <StackLayout BackgroundColor="GhostWhite">
+       
+        <FlexLayout BackgroundColor="#4BB00A" HeightRequest="200" Direction="Row" AlignItems="Center" JustifyContent="SpaceEvenly">
+            <StackLayout >
+                <Label Text="County &#10;Rate" HorizontalOptions="Center" FontSize="Medium" HorizontalTextAlignment="Center" TextColor="White" />
+                <Label Text="{Binding TaxRate.CountyRate}" HorizontalTextAlignment="Center" TextColor="LawnGreen" FontAttributes="Bold" FontSize="Medium" />
+            </StackLayout>
+            <Frame HeightRequest="140" WidthRequest="140" Margin="0, -20,0,-10" CornerRadius="70" HorizontalOptions="Center" VerticalOptions="CenterAndExpand"
+                   Padding="0" BackgroundColor="White" x:Name="spendingCircle"> 
+                <Label Grid.Column="0" Text="{Binding TaxRate.StateRate}" FontSize="30" FontAttributes="Bold" TextColor="Green" 
+                           HorizontalOptions="Center" VerticalOptions="Center" HorizontalTextAlignment="Center" VerticalTextAlignment="Center">
+             
+                </Label>
+            </Frame>
+            <StackLayout>
+                <Label Text="City Rate" HorizontalOptions="Center" FontSize="Medium" HorizontalTextAlignment="Center" TextColor="White" />
+                <Label Text="{Binding TaxRate.CityRate}" HorizontalTextAlignment="Center" TextColor="LawnGreen" FontAttributes="Bold" FontSize="Medium"/>
+            </StackLayout>
+        </FlexLayout>
+
+        <Frame CornerRadius="10" Padding="10" BackgroundColor="White" Margin="20, -30, 20, 20" VerticalOptions="Start">
+       
+           <StackLayout Spacing="15" Padding="10" BackgroundColor="WhiteSmoke"> 
+          
+
+                <Entry Text="{Binding ZipCode}"  FontSize="20" HeightRequest="75" Placeholder="Zip Code"
+                    BackgroundColor="White" TextColor="Black"  PlaceholderColor="Gray" ClearButtonVisibility="WhileEditing" />
+        
+                <!--<Entry BackgroundColor="White" TextColor="Black" x:Name="AmountEntry" Text="{Binding Item.Amount}" Keyboard="Numeric" FontSize="20"
+                       Margin="0" HeightRequest="75" Placeholder="Amount" PlaceholderColor="Gray" ClearButtonVisibility="WhileEditing"/>-->
+          
+        
+                <Button Text="Search" Clicked="Button_Clicked" BackgroundColor="#4BB00A" FontSize="20" TextColor="White" CornerRadius="20"></Button>
+            
+      
+            </StackLayout>
+        </Frame>
+    </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

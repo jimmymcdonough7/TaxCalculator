@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="TaxCalculator.Views.CalculateTaxPage" Title="Tax Calculator">
+    <ContentPage.Content>
+         <StackLayout BackgroundColor="GhostWhite">
+       
+        <FlexLayout BackgroundColor="#4BB00A" HeightRequest="200" Direction="Row" AlignItems="Center" JustifyContent="SpaceEvenly">
+            <StackLayout >
+                <Label Text="Tax Rate" HorizontalOptions="Center" FontSize="Medium" HorizontalTextAlignment="Center" TextColor="White" />
+                <Label Text="{Binding Tax.Rate}" HorizontalTextAlignment="Center" TextColor="LawnGreen" FontAttributes="Bold" FontSize="Medium" />
+            </StackLayout>
+            <Frame HeightRequest="140" WidthRequest="140" Margin="0, -20,0,-10" CornerRadius="70" HorizontalOptions="Center" VerticalOptions="CenterAndExpand"
+                   Padding="0" BackgroundColor="White" x:Name="spendingCircle"> 
+                <Label Grid.Column="0" Text="{Binding Tax.TaxAmount}" FontSize="30" FontAttributes="Bold" TextColor="Green" 
+                           HorizontalOptions="Center" VerticalOptions="Center" HorizontalTextAlignment="Center" VerticalTextAlignment="Center">
+             
+                </Label>
+            </Frame>
+            <StackLayout>
+                <Label Text="Taxable &#10;Amount" HorizontalOptions="Center" FontSize="Medium" HorizontalTextAlignment="Center" TextColor="White" />
+                <Label Text="{Binding Tax.TaxableAmount}" HorizontalTextAlignment="Center" TextColor="LawnGreen" FontAttributes="Bold" FontSize="Medium"/>
+            </StackLayout>
+        </FlexLayout>
+
+        <Frame CornerRadius="10" Padding="10" BackgroundColor="White" Margin="20, -30, 20, 20" VerticalOptions="Start">
+       
+           <StackLayout Spacing="15" Padding="10" BackgroundColor="WhiteSmoke"> 
+          
+
+                <Entry Text="{Binding CountryCode}"  FontSize="20" HeightRequest="75" Placeholder="Country Code"
+                    BackgroundColor="White" TextColor="Black"  PlaceholderColor="Gray" ClearButtonVisibility="WhileEditing"  />
+        
+                <Entry Text="{Binding ShippingCost}"  FontSize="20" HeightRequest="75" Placeholder="Shipping Cost"
+                    BackgroundColor="White" TextColor="Black"  PlaceholderColor="Gray" ClearButtonVisibility="WhileEditing"  />
+
+               <Entry Text="{Binding Amount}"  FontSize="20" HeightRequest="75" Placeholder="Order Amount"
+                    BackgroundColor="White" TextColor="Black"  PlaceholderColor="Gray" ClearButtonVisibility="WhileEditing"  />
+
+               <Entry Text="{Binding ZipCode}"  FontSize="20" HeightRequest="75" Placeholder="Zip Code"
+                    BackgroundColor="White" TextColor="Black"  PlaceholderColor="Gray" ClearButtonVisibility="WhileEditing"  />
+
+               <Entry Text="{Binding State}"  FontSize="20" HeightRequest="75" Placeholder="State"
+                    BackgroundColor="White" TextColor="Black"  PlaceholderColor="Gray" ClearButtonVisibility="WhileEditing"  />
+        
+                <Button Text="Calculate Tax" Clicked="Button_Clicked" BackgroundColor="#4BB00A" FontSize="20" TextColor="White" CornerRadius="20"></Button>
+            
+      
+            </StackLayout>
+        </Frame>
+    </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
